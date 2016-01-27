@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timeline Prototype</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer" id="main">
+      <div class="sidebar"></div>
+      <div id="timelineMain" class="timeline-main" v-cloak>
+        <h1 class="session-title">
+          {{session}} Congress
+        </h1>
+        <p class="session-description">
+          {{description}}
+        </p>
+        <div class="timeline-body" >
+          <ul class="timeline-main" id="timelineList">
+            <li class="timeline-item" v-for="item in timelineItems">
+              <div class="date">{{item.date}}</div>
+              <div id="{{item.date}}--{{$index}}" class="timeline-item__event" v-for="event in item.events">
+
+                <h3>{{event.title}}</h3>
+                <p>{{event.description}}</p>
+
+                <div class="links-container" v-if="getArrayLength(event.links)">
+                  <h4>Links</h4>
+                  <ul class="links-list">
+                    <li class="link-item" v-for="link in event.links">
+                      <h5><a href="{{link.href}}">{{link.title}}</a></h5>
+                      <p>{{link.description}}</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="documents-container" v-if="getArrayLength(event.documents)">
+                  <h4>Documents</h4>
+                  <ul class="docs-list">
+                    <li class="doc-item" v-for="doc in event.documents">
+                      <h5><a href="{{doc.href}}">{{doc.title}}</a></h5>
+                      <p>{{doc.description}}</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="assets/js/vendor/require.js" data-main="assets/js/config.js"></script>
+    <script type='text/javascript' id="__bs_script__">//<![CDATA[
+        document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.9.3.js'><\/script>".replace("HOST", location.hostname));
+    //]]>
+    </script>
+  </body>
+</html>

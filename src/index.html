@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timeline Prototype</title>
+    <link rel="stylesheet" href="assets/css/timeline.css">
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="main-header__inner">
+        <a href="http://i-foi.org/"><i class="main-header__logo ifoi-logo"></i></a>
+      </div>
+    </header>
+    <div class="outer" id="main" v-cloak data-sidebar-show="false">
+      <div class="sidebar">
+        <div class="sidebar__inner">
+          <h4 class="sidebar__title title">
+            Quick Navigation
+          </h4>
+          <div class="sidebar__year" v-for="(year, month) in timelineItems">
+            <div class="sidebar__year-title">
+              {{year}}
+            </div>
+            <div class="sidebar__month" v-for="(m,d) in month">
+              <div class="sidebar__month-title">
+                <a href="#group-{{m}}-{{year}}">{{m}} {{year}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="timelineMain" class="timeline-main" >
+        <header class="title-header">
+          <div class="title-header__inner">
+            <h1>Legislative</h1>
+            <h1>Campaign</h1>
+          </div>
+        </header>
+        <div class="congress-selector" id="congressSelector">
+          <div class="congress-selector__inner">
+            <div class="menu-trigger-container">
+              <input type="checkbox" id="menuTrigger" class="menu-trigger" v-on:click="triggerSidebar">
+              <label for="menuTrigger">Menu</label>
+            </div>
+            <h1 class="session-title title">
+              {{session}} Congress
+            </h1>
+          </div>
+        </div>
+        <div class="session-description">
+          <p>{{description}}</p>
+        </div>
+        <div class="timeline-body" >
+          <div class="timeline-line"></div>
+          <ul class="timeline" id="timelineList">
+            <li class="timeline__year-group" v-for="(year, month) in timelineItems">
+
+              <ul class="timeline__month-group">
+                <li class="timeline__month-group__item" v-for="day in month" id="group-{{$key}}-{{year}}">
+                  <label class="day-group-title title" for="cb-day-group-{{$key}}-{{year}}">{{$key}} {{year}}</label>
+                  <input id="cb-day-group-{{$key}}-{{year}}" type="checkbox" class="list-collapse-trigger">
+
+                  <ul id="day-group-{{$key}}-{{year}}" class="timeline__day-group timeline__item list">
+                    <li class="timeline__day-group__item" v-for="_event in day">
+                      <div class="timeline__event-date-label">
+                        <div class="timeline__event-date-inner">
+                          {{_event.date}}
+                        </div>
+                      </div>
+                      <div class="timeline__day-group__dot">
+                        <div class="timeline__day-group__dot__inner">
+
+                        </div>
+                      </div>
+                      <div class="timeline__day-group__content">
+                        <ul class="timeline__event-list list">
+                          <li class="timeline__event-list__item" v-for="i in _event.events">
+                            <div class="timeline__event-title title">
+                              {{i.title}}
+                            </div>
+                            <div class="timeline__event-description">
+                              {{i.description}}
+                            </div>
+                            <div class="timeline__event-links-container" v-if="getArrayLength(i.links)">
+                              <label class="timeline__event-attachment-title title" for="cb-link-{{_event.dateRaw}}-{{$index}}">
+                                Related Links
+                              </label>
+                              <input id="cb-link-{{_event.dateRaw}}-{{$index}}" type="checkbox" class="list-collapse-trigger">
+                              <ul class="timeline__events-links list">
+                                <li v-for="link in i.links">
+                                  <a href="{{link.href}}">{{link.title}}</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="timeline__event-docs-container" v-if="getArrayLength(i.documents)">
+                              <label class="timeline__event-attachment-title title" for="cb-doc-{{_event.dateRaw}}-{{$index}}">
+                                Relevant Documents
+                              </label>
+                              <input id="cb-doc-{{_event.dateRaw}}-{{$index}}" type="checkbox" class="list-collapse-trigger">
+                              <ul class="timeline__events-docs list">
+                                <li v-for="doc in i.documents">
+                                  <a href="{{doc.href}}">{{doc.title}}</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="terminus"></div>
+      </div>
+
+    </div>
+    <footer class="main-footer">
+      <div class="footer__inner">
+        <div class="footer-logo ifoi-logo"></div>
+        <div class="legal">
+          <span> © Institute of Freedom For Information</span>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/vendor/require.js" data-main="assets/js/config.js"></script>
+  </body>
+</html>

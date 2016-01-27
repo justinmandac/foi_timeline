@@ -1,0 +1,375 @@
+@font-face {
+  font-family: 'Liberation-Serif-Regular';
+  src: url('../fonts/LiberationSerif-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+     url('../fonts/LiberationSerif-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+     url('../fonts/LiberationSerif-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+     url('../fonts/LiberationSerif-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Liberation-Sans-Regular';
+  src: url('../fonts/LiberationSans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+     url('../fonts/LiberationSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+     url('../fonts/LiberationSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+     url('../fonts/LiberationSans-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+html, body, div, span, section, article, h1, h2, h3, h4, h5, h6, ul, ol,li, p {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-family: 'Liberation-Sans-Regular', 'Helvetica', 'Arial',sans-serif;
+}
+
+/**
+  #TYPOGRAPHY
+*/
+
+h1, h2, h3, h4, h5, .title {
+  font-family: "Liberation-Serif-Regular","Times New Roman", serif;
+}
+
+h1 {
+  font-size: 55.9097882332px; //16px*phi^2.6
+  letter-spacing: 1.21225799242px;
+}
+
+h2 {
+  font-size: 46.1203708972px; //16px*phi^2.2
+}
+
+h3 {
+  font-size: 38.0450128485px; //16px*phi^1.8
+}
+
+h4 {
+  font-size: 31.3835941578px; //16px*phi^1.4
+}
+
+h5 {
+  font-size:   25.88854382px; //16px*phi^1
+}
+
+p {
+  font-size: 16px; //16px*phi^0
+}
+
+.main-header {
+  height: 50px;
+  background-color: #CC3333;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-header__inner {
+  height: 100%;
+}
+
+.ifoi-logo {
+  background: url('../img/spritesheet.png') no-repeat;
+}
+
+.main-header__logo {
+  height: 122px;
+  display: block;
+  width: 280px;
+  background-size: contain;
+}
+
+.title-header {
+  height: 360px;
+  background: url('../img/freedom-of-information-law-aquino1.jpg') no-repeat;
+  background-size: cover;
+  margin-bottom: 38.0450128485px;
+  position: relative;
+}
+
+.title-header__inner {
+  position: relative;
+  top: 25%;
+}
+
+.title-header__inner h1 {
+  margin-top: 31.3835941578px;
+  font-size: 67.77708764px;
+  color: #FFF;
+}
+
+.title-header__inner h1:first-child {
+  margin-top: 0;
+}
+
+.outer[v-cloak] {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.outer {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.list-collapse-trigger {
+  display: none;
+}
+
+.list-collapse-trigger:checked + .list {
+  opacity: 0;
+  height: 0;
+}
+
+/**
+
+  #SIDEBAR
+
+*/
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 280px;
+  z-index: 10;
+  top: 0;
+  background-color: #FFF;
+  transform: translate(-100%,0%);
+  -webkit-box-shadow: 10px 0px 23px -12px rgba(0,0,0,0.52);
+  -moz-box-shadow: 10px 0px 23px -12px rgba(0,0,0,0.52);
+  box-shadow: 10px 0px 23px -12px rgba(0,0,0,0.52);
+  transition: transform 0.5s;
+}
+
+.outer[data-sidebar-show="true"] .sidebar {
+  transform: translate(0%,0%);
+  transition: transform 0.5s;
+
+
+}
+
+.outer[data-sidebar-show="true"] .timeline-main {
+  transform: translate(280px,0%);
+  transition: transform 0.5s;
+
+}
+
+.sidebar__inner {
+  padding: 10px;
+}
+
+.sidebar__title {
+  text-align: center;
+}
+
+.main-header__inner,
+.timeline-body,
+.title-header__inner,
+.congress-selector__inner,
+.session-description,
+.footer-inner {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/**
+  #SESSION AND MENU
+*/
+.congress-selector {
+  position: relative;
+}
+  .session-title {
+    font-size: 55.9097882332px;
+    text-align: center;
+  }
+
+  .session-description p {
+    margin: 17.616414109px 0;
+  }
+
+  .menu-trigger-container,
+  .menu-trigger-container label {
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+    z-index: 20;
+    top: 40%;
+  }
+    .menu-trigger {
+      display: none;
+    }
+
+/**
+  #TIMELINE
+*/
+
+.timeline-main {
+  transform: translate(0%,0%);
+  transition: transform 0.5s;
+}
+
+.timeline-body {
+  position: relative;
+  margin-top: 55.9097882332px;
+}
+
+
+.timeline-line {
+  width: 8px;
+  height: 100%;
+  background-color: #CC3333;
+  position: absolute;
+  left: 50%;
+}
+
+.timeline-body ul {
+  list-style: none;
+}
+
+.timeline__month-group__item {
+  overflow: hidden;
+}
+
+.timeline__day-group {
+  padding: 16px;
+  overflow: hidden;
+  margin-top: 25.88854382px;
+  margin-bottom: 25.88854382px;
+}
+
+.day-group-title {
+  background-color: #cc3333;
+  color: #FFF;
+  width: 100%;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.timeline__day-group__item:first-child {
+  margin-top: 0;
+}
+
+.timeline__day-group__item {
+  margin-top: 21.3556388013px;
+  overflow: hidden;
+}
+
+
+
+
+.timeline__event-list {
+  padding-left: 25.88854382px;
+}
+
+  .timeline__event-date-label {
+    float: left;
+    width: 40%;
+    text-align: right;
+    font-size:   25.88854382px; //16px*phi^1
+  }
+
+  .timeline__day-group__dot {
+      width: 30px;
+      float: left;
+      margin-left: 8.8%;
+      height: 30px;
+      border-radius: 100%;
+      background-color:  #CC3333;
+      position: relative;
+  }
+
+  .timeline__day-group__dot__inner {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: #FFF;
+    left: 7px;
+    top: 7px;
+    border-radius: 100%;
+  }
+
+  .timeline__day-group__content {
+    float: right;
+    width:45%;
+  }
+
+  /*  FLIP */
+  .timeline__day-group__item:nth-child(2n) .timeline__event-date-label{
+    float:right;
+    text-align: left;
+    width: 45%
+  }
+  .timeline__day-group__item:nth-child(2n) .timeline__day-group__dot  {
+    float:right;
+    margin-right: 3%;
+    margin-left: 0;
+  }
+
+  .timeline__day-group__item:nth-child(2n) .timeline__day-group__content {
+    float:left;
+    width: 39%;
+  }
+
+  .day-group-title {
+    display: block;
+    font-size: 46.1203708972px;
+    text-align: center;
+  }
+
+.timeline__event-list__item:first-child {
+  margin-top: 0px;
+}
+.timeline__event-list__item {
+  margin-top: 16px;
+}
+
+  .timeline__event-title {
+    font-size: 31.3835941578px;
+  }
+
+  .timeline__event-description {
+    padding-left: 16px;
+    font-style:italic;
+  }
+
+  .timeline__event-attachment-title {
+    margin-top: 16px;
+    display:  block;
+    font-size:   21.3556388013px;
+  }
+
+  ul.timeline__events-links,
+  ul.timeline__events-docs {
+    list-style: circle;
+    padding-left: 32px;
+  }
+
+  .terminus {
+    width: 100%;
+    height: 8px;
+    background-color: #CC3333;
+  }
+
+  .main-footer {
+    background-color: #666;
+    min-height: 260px;
+    color: #FFF;
+  }
+
+  .footer-logo {
+    height: 68px;
+    width: 165px;
+    background-size: cover;
+    margin: 0 auto;
+  }
+
+  .main-footer .legal {
+    text-align: center;
+  }
