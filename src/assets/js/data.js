@@ -81,6 +81,23 @@ define(function () {
             ]
           }
         ]
+      },
+      {
+        date: '2014-12-18',
+        events: [
+          {
+            title: 'Sed Do Eiusmod Tempor',
+            description: 'Sed do eiusmod tempor incididunt ut labore. Sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            links: [],
+            documents: [
+              {
+                title : "Dolore eu fugiat nulla pariatur.",
+                description : "A train that will take you far away.",
+                href  : "http://the-actual-link.com"
+              }
+            ]
+          }
+        ]
       }
     ]
 

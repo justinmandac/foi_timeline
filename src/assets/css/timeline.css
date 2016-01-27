@@ -141,6 +141,7 @@ p {
   -moz-box-shadow: 10px 0px 23px -12px rgba(0,0,0,0.52);
   box-shadow: 10px 0px 23px -12px rgba(0,0,0,0.52);
   transition: transform 0.5s;
+  overflow: scroll;
 }
 
 .outer[data-sidebar-show="true"] .sidebar {
@@ -156,12 +157,35 @@ p {
 
 }
 
-.sidebar__inner {
-  padding: 10px;
+.close-trigger-container {
+  text-align: right;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+.close-trigger-container label {
+  cursor: pointer;
 }
 
 .sidebar__title {
   text-align: center;
+  padding: 4px 6px;
+}
+
+.sidebar__year-title {
+  text-align: center;
+  padding: 6px 4px;
+  color: #FFF;
+  background-color: #cc3333;
+}
+
+.sidebar__month {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.sidebar__month a {
+  text-decoration: none;
 }
 
 .main-header__inner,
@@ -361,6 +385,10 @@ p {
     background-color: #666;
     min-height: 260px;
     color: #FFF;
+  }
+
+  .footer__inner {
+    padding-top: 10%;
   }
 
   .footer-logo {
